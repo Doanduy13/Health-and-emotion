@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthCare - Hỏi thăm Sức khỏe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>HealthCare</h1>
+            <p>Theo dõi sức khỏe và cảm xúc của bạn</p>
+        </header>
+
+        <main class="main-content">
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <button class="tab-button active" onclick="showTab('login')">Đăng nhập</button>
+                    <button class="tab-button" onclick="showTab('register')">Đăng ký</button>
+                </div>
+
+                <div id="login-form" class="auth-form active">
+                    <h2>Đăng nhập</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="login-email">Email</label>
+                            <input type="email" id="login-email" placeholder="Nhập email của bạn" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Mật khẩu</label>
+                            <input type="password" id="login-password" placeholder="Nhập mật khẩu" required>
+                        </div>
+                        <button type="submit" class="btn-primary">Đăng nhập</button>
+                    </form>
+                </div>
+
+                <div id="register-form" class="auth-form">
+                    <h2>Đăng ký tài khoản</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="register-name">Họ và tên</label>
+                            <input type="text" id="register-name" placeholder="Nhập họ tên đầy đủ" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-email">Email</label>
+                            <input type="email" id="register-email" placeholder="Nhập email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password">Mật khẩu</label>
+                            <input type="password" id="register-password" placeholder="Tạo mật khẩu" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-confirm">Xác nhận mật khẩu</label>
+                            <input type="password" id="register-confirm" placeholder="Xác nhận mật khẩu" required>
+                        </div>
+                        <button type="submit" class="btn-primary">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="features">
+                <h2>Tính năng nổi bật</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>📊 Theo dõi sức khỏe</h3>
+                        <p>Ghi lại và theo dõi các chỉ số sức khỏe hàng ngày</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>😊 Quản lý cảm xúc</h3>
+                        <p>Theo dõi tâm trạng và cảm xúc mỗi ngày</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📈 Thống kê chi tiết</h3>
+                        <p>Xem báo cáo và phân tích sức khỏe theo thời gian</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Ẩn tất cả form
+            document.querySelectorAll('.auth-form').forEach(form => {
+                form.classList.remove('active');
+            });
+            
+            // Xóa active class từ tất cả button
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Hiển thị form được chọn
+            document.getElementById(tabName + '-form').classList.add('active');
+            
+            // Thêm active class cho button được click
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
